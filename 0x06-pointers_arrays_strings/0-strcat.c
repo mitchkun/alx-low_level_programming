@@ -7,22 +7,20 @@
  *
  * Return: char value
  */
-char *_strncat(char *dest, char *src, int n)
+char *_strcat(char *dest, char *src)
 {
-	int count = 0, count2 = 0;
+	int i;
+	int j;
 
-	while (*(dest + count) != '\0')
-	{
-		count++;
-	}
+	for (j = 0; dest[j] != '\0'; j++)
+	{}
 
-	while (count2 < n)
+	for (i = 0; src[i] != '\0'; i++)
 	{
-		*(dest + count) = *(src + count2);
-		if (*(src + count2) == '\0')
-			break;
-		count++;
-		count2++;
+		dest[j + i] = src[i];
 	}
+	dest[j + i] = '\0';
+
 	return (dest);
+
 }
