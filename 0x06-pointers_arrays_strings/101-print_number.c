@@ -1,4 +1,4 @@
-#include "holberton.h"
+#include "main.h"
 /**
  * print_number - prints number
  * @n:integer to convert to character
@@ -6,38 +6,29 @@
  */
 void print_number(int n)
 {
-	unsigned int abs;
-	int mult = 1;
-	unsigned int abSCount;
-	int i;
-	int c = 0;
+	unsigned int m, d, count;
 
-	if (n == 0)
-	{
-		_putchar('0');
-	}
 	if (n < 0)
 	{
-		_putchar('-');
-		n += 1;
-		n *= -1;
-		n++;
+		_putchar(45);
+		m = n * -1;
 	}
-	abs = n;
-	abSCount = n;
-
-	while (abSCount > 0)
+	else
 	{
-		abSCount /= 10;
-		c++;
+		m = n;
 	}
-	for (i = 0; i < c - 1; i++)
-		mult *= 10;
 
-	for (i = 0; i < c; i++)
+	d = m;
+	count = 1;
+
+	while (d > 9)
 	{
-		_putchar((abs / mult) + '0');
-		abs = abs % mult;
-		mult /= 10;
+		d /= 10;
+		count *= 10;
+	}
+
+	for (; count >= 1; count /= 10)
+	{
+		_putchar(((m / count) % 10) + 48);
 	}
 }
